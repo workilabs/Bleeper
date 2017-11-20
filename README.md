@@ -161,11 +161,7 @@ Basically Bleeper exposes four entry points:
 
 ### Arduino IDE
 
-1. Go to Arduino > Preferences  
-Under `Additional Boards Manager URLs` add this `https://raw.githubusercontent.com/neman-io/Bleeper/master/library.json`
-  > Note: if you already have an URL there, add a comma (,) and then the URL.  
-
-2. Go to Sketch > Include Library > Manage Libraries...  
+Go to Sketch > Include Library > Manage Libraries...  
 Search for `Bleeper` and click on `Install`
 
 ### PlatformIO IDE
