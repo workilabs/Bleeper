@@ -176,3 +176,7 @@ lib_deps = Bleeper
 - Add support for other boards.
 - Improve documentation & examples.
 - Add CI server & tests.
+
+## Author
+
+* [Diego Ernst](https://github.com/dernster)
