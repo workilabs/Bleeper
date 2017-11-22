@@ -166,7 +166,7 @@ Search for `Bleeper` and click on `Install`
 
 ### PlatformIO IDE
 
-Go to you `platformio.ini` file and add the following lines:
+Go to your `platformio.ini` file and add the following lines:
 ```
 lib_deps = Bleeper
 lib_ldf_mode = deep
