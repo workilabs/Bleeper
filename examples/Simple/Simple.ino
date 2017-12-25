@@ -8,8 +8,8 @@ public:
 
 class WifiConfig: public Configuration {
 public:
-  persistentStringVar(ssid, "Antel");
-  persistentStringVar(password, "4532xyzh");
+  persistentStringVar(ssid, "ssid");
+  persistentStringVar(password, "password");
   subconfig(Network, network);
 };
 
@@ -37,10 +37,6 @@ public:
 
 void setup() {
 
-  configureLed(2);
-
-  Serial.setDebugOutput(true);
-
   Bleeper
     .verbose()
     .configuration
@@ -51,9 +47,9 @@ void setup() {
       .addDefaultWebServer()
       .done()
     .connection
-      .setMultipleConnections({
-          new AP(),
-          new Wifi(&C.wifi.ssid, &C.wifi.password)
+      .setSingleConnectionFromPriorityList({
+          new Wifi(&C.wifi.ssid, &C.wifi.password),
+          new AP()
       })
       .done()
     .storage

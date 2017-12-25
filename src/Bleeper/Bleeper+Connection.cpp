@@ -17,3 +17,7 @@ FunctionsContainer& FunctionsContainer::setSingleConnectionFromPriorityList(std:
   Bleeper.userProperties.connection = new OneOfMultipleConnection(connections);
   return *this;
 }
+
+Connection* FunctionsContainer::get() {
+  return Bleeper.userProperties.connection;
+}

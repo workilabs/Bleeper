@@ -8,6 +8,6 @@
     "url": "https://github.com/neman-io/Bleeper.git"
   },
   "frameworks": "arduino",
-  "platforms": "espressif8266",
+  "platforms": ["espressif8266", "espressif32"],
   "version": "1.0.1"
 }

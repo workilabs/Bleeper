@@ -47,6 +47,7 @@ public:
   class ConnectionFunctions: public Chainable {
   public:
     ConnectionFunctions& set(Connection*);
+    Connection* get();
     ConnectionFunctions& setMultipleConnections(std::vector<Connection*> connections);
     ConnectionFunctions& setSingleConnectionFromPriorityList(std::vector<Connection*> connections);
   } connection;

@@ -1,5 +1,11 @@
 #include "Connectivity/Wifi.h"
+
+#ifdef ESP8266
 #include <ESP8266WiFi.h>
+#elif ESP32
+#include <WiFi.h>
+#endif
+
 #include "Bleeper/BleeperClass.h"
 #include "Helpers/Logger.h"
 #include "Helpers/macros.h"
@@ -7,7 +13,7 @@
 void Wifi::printWifiStatus() {
   Log("SSID: " + WiFi.SSID());
   IPAddress ip = WiFi.localIP();
-  Log("IP Address: " + String(ip));
+  Log("IP Address: " + ip.toString());
 }
 
 Wifi::Wifi(VariableAddress ssidAddress, VariableAddress passwordAddress) {
@@ -45,7 +51,11 @@ void Wifi::connect() {
   Connection::connect();
   _wantsToRetryConnection = false;
   if (!isExclusiveConnection) {
+    #ifdef ESP8266
     WiFi.mode((WiFiMode)(WiFi.getMode() | WIFI_STA));
+    #elif ESP32
+    WiFi.mode((WiFiMode_t)(WiFi.getMode() | WIFI_STA));
+    #endif
   }
   WiFi.begin(ssid.c_str(), password.c_str());
 };
@@ -58,7 +68,7 @@ void Wifi::disconnect() {
 void Wifi::handle() {
   auto status = WiFi.status();
   isConnected = (status == WL_CONNECTED);
-  isConnecting = !isConnected && (status == WL_DISCONNECTED || status == WL_IDLE_STATUS);
+  isConnecting = !isConnected && (status != WL_CONNECT_FAILED) && (status != WL_NO_SSID_AVAIL);
   if (isConnected && firstTime) {
     printWifiStatus();
     firstTime = false;

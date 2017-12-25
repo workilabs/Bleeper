@@ -1,18 +1,22 @@
 #pragma once
+
+#ifdef ESP8266
+
 #include "Arduino.h"
 #include <ESP8266WebServer.h>
 #include "ConfigurationInterface/WebServer/WebServer.h"
 
-class DefaultWebServer: public WebServer {
-private:
+class ESP8266DefaultWebServer: public WebServer {
+protected:
   ESP8266WebServer* server;
-  String buildPage();
   void handleRoot();
   void handleScript();
   void handleStyle();
   void handleSave();
 public:
-  DefaultWebServer(int port);
-  void init();
-  void handle();
+  ESP8266DefaultWebServer(int port);
+  virtual void init();
+  virtual void handle();
 };
+
+#endif // ESP8366
