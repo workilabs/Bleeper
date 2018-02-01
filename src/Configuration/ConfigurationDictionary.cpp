@@ -1,5 +1,5 @@
 #include "Configuration/ConfigurationDictionary.h"
-#include "Helpers/Utils.h"
+#include "Helpers/utils.h"
 #include "Helpers/macros.h"
 
 ConfigurationDictionary::ConfigurationDictionary() {};
