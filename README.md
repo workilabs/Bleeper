@@ -2,7 +2,7 @@
 <img src="img/Bleeper.png" width="700"/>
 </p>
 
-Bleeper is a library to manage your firmware configurations written in C++ for [ESP8266 Arduino Platform](https://github.com/esp8266/Arduino).  
+Bleeper is a library to manage your firmware configurations written in C++ for [ESP8266](https://github.com/esp8266/Arduino) and [ESP32](https://github.com/espressif/arduino-esp32) Arduino Platforms.
 
 - [Features](#features)
 - [Why Bleeper](#why-bleeper)
@@ -121,9 +121,9 @@ void setup() {
       .addDefaultWebServer()
       .done()
     .connection
-      .setMultipleConnections({
-          new AP(),
-          new Wifi(&C.wifi.ssid, &C.wifi.password)
+      .setSingleConnectionFromPriorityList({
+          new Wifi(&C.wifi.ssid, &C.wifi.password),
+          new AP() // fallback
       })
       .done()
     .storage
