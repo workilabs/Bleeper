@@ -24,6 +24,7 @@ public:
   static BleeperClass* shared();
   void handle();
   void init();
+  void init(bool loadFromStorage);
   BleeperClass& verbose();
 
   class Chainable {

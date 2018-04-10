@@ -16,7 +16,7 @@ Bleeper is a library to manage your firmware configurations written in C++ for [
 
 - [x] Fully customizable hierarchical configuration structure
 - [x] Generic property types
-- [x] Automatic storage with property granularity (EEPROM by default)
+- [x] Automatic storage with property granularity (EEPROM & SPIFFS)
 - [x] Wifi & AP connections
 - [x] Configuration interfaces (web panel by default)
 - [x] Observe any configuration property change through the observer API
@@ -127,7 +127,8 @@ void setup() {
       })
       .done()
     .storage
-      .setDefault()
+      .setDefault() // EEPROM
+      // .set(new SPIFFSStorage()) // SPIFFS
       .done()
     .init();
 }
@@ -155,7 +156,7 @@ Basically Bleeper exposes four entry points:
 
 2. **Bleeper.storage**  
 
-  Lets you specify the `Storage` instance to use when saving your persistent variables. Calling `setDefault` will use the default EEPROM storage automatically.
+  Lets you specify the `Storage` instance to use when saving your persistent variables. Calling `setDefault` will use the default EEPROM storage automatically. You can also use `SPIFFSStorage` or create your own instead.
 
 ## Installation
 

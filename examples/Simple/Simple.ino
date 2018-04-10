@@ -9,7 +9,7 @@ public:
 class WifiConfig: public Configuration {
 public:
   persistentStringVar(ssid, "ssid");
-  persistentStringVar(password, "password");
+  persistentStringVar(password, "pass");
   subconfig(Network, network);
 };
 
@@ -53,7 +53,8 @@ void setup() {
       })
       .done()
     .storage
-      .setDefault()
+      .setDefault() // EEPROM
+      // .set(new SPIFFSStorage()) // SPIFFS
       .done()
     .init();
 }

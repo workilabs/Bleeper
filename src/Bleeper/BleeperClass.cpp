@@ -39,6 +39,10 @@ BleeperClass& BleeperClass::verbose() {
 }
 
 void BleeperClass::init() {
+  init(true);
+}
+
+void BleeperClass::init(bool loadFromStorage) {
   guard(userProperties.rootConfig, return);
 
   configuration.enableObservers(false);
@@ -47,7 +51,8 @@ void BleeperClass::init() {
 
   if (userProperties.storage) {
     userProperties.storage->init();
-    userProperties.storage->load();
+    if (loadFromStorage)
+      userProperties.storage->load();
   }
 
   for(auto interface: userProperties.interfaces) {
