@@ -8,3 +8,4 @@
 #include "Configuration/ConfigurationMacros.h"
 #include "Configuration/Configuration.h"
 #include "Configuration/RootConfiguration.h"
+#include "Storage/SPIFFSStorage.h"
