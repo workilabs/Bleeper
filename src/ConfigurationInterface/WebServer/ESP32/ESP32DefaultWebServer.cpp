@@ -5,7 +5,7 @@
 #include "Helpers/Logger.h"
 #include <functional>
 
-ESP32DefaultWebServer::ESP32DefaultWebServer(int port): WebServer(port) {
+ESP32DefaultWebServer::ESP32DefaultWebServer(int port): BleeperWebServer(port) {
   server = NULL;
 }
 

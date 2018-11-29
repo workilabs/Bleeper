@@ -7,7 +7,7 @@
 #include <map>
 #include "Helpers/Logger.h"
 
-ESP8266DefaultWebServer::ESP8266DefaultWebServer(int port): WebServer(port) {
+ESP8266DefaultWebServer::ESP8266DefaultWebServer(int port): BleeperWebServer(port) {
   server = NULL;
 }
 
