@@ -4,14 +4,14 @@
 
 #include "Arduino.h"
 #include <WiFiServer.h>
-#include "ConfigurationInterface/WebServer/WebServer.h"
+#include "ConfigurationInterface/WebServer/BleeperWebServer.h"
 #include "ConfigurationInterface/WebServer/ESP32/HTTPRequest.h"
 #include <functional>
 #include <map>
 
 typedef std::function<void(HTTPRequest & request, WiFiClient &)> RouteHandler;
 
-class ESP32DefaultWebServer: public WebServer {
+class ESP32DefaultWebServer: public BleeperWebServer {
 protected:
   WiFiServer* server;
   std::map<String, RouteHandler> router;

@@ -1,14 +1,14 @@
-#include "ConfigurationInterface/WebServer/WebServer.h"
+#include "ConfigurationInterface/WebServer/BleeperWebServer.h"
 #include "Configuration/ConfigurationDictionary.h"
 #include "Bleeper/BleeperClass.h"
 #include "Helpers/Logger.h"
 #include "ConfigurationInterface/WebServer/WebPage.h"
 
-WebServer::WebServer(int port) {
+BleeperWebServer::BleeperWebServer(int port) {
   this->port = port;
 }
 
-String WebServer::buildPage(const std::vector<StringConvertibleVariable*> & vars) {
+String BleeperWebServer::buildPage(const std::vector<StringConvertibleVariable*> & vars) {
   Log("Page requested");
   String first = "<!DOCTYPE html><title>Bleeper</title><meta content=\"width=device-width,user-scalable=no\"name=viewport><link href=style rel=stylesheet><link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Righteous\"><script src=script></script><div id=cf><h1>Bleeper</h1>";
   String middle = "";
@@ -25,7 +25,7 @@ String WebServer::buildPage(const std::vector<StringConvertibleVariable*> & vars
   return first + middle + last;
 }
 
-void WebServer::saveValues(const std::map<String, String> & args) {
+void BleeperWebServer::saveValues(const std::map<String, String> & args) {
   if (args.size() == 0) return;
   ConfigurationDictionary params;
   for(const auto & arg: args) {
@@ -36,10 +36,10 @@ void WebServer::saveValues(const std::map<String, String> & args) {
   Log("Configs saved!");
 }
 
-const char* WebServer::getJS() {
+const char* BleeperWebServer::getJS() {
   return JS;
 }
 
-const char* WebServer::getStyle() {
+const char* BleeperWebServer::getStyle() {
   return CSS;
 }

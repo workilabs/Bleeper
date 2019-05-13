@@ -4,9 +4,9 @@
 
 #include "Arduino.h"
 #include <ESP8266WebServer.h>
-#include "ConfigurationInterface/WebServer/WebServer.h"
+#include "ConfigurationInterface/WebServer/BleeperWebServer.h"
 
-class ESP8266DefaultWebServer: public WebServer {
+class ESP8266DefaultWebServer: public BleeperWebServer {
 protected:
   ESP8266WebServer* server;
   void handleRoot();

@@ -11,11 +11,11 @@
 #define CONTENT_TYPE_JS "application/javascript"
 #define CONTENT_TYPE_CSS "text/css"
 
-class WebServer: public ConfigurationInterface {
+class BleeperWebServer : public ConfigurationInterface {
 protected:
   int port;
 public:
-  WebServer(int port);
+  BleeperWebServer(int port);
   virtual void init() = 0;
   virtual void handle() = 0;
   virtual String buildPage(const std::vector<StringConvertibleVariable*> &);
