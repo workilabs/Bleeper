@@ -33,8 +33,9 @@ void BleeperClass::handle() {
 
 }
 
-BleeperClass& BleeperClass::verbose() {
+BleeperClass& BleeperClass::verbose(int baudRate) {
   Logger::verbose = true;
+  Logger::baudRate = baudRate;
   return *this;
 }
 

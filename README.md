@@ -112,7 +112,7 @@ Config C;
 void setup() {
 
   Bleeper
-    .verbose()
+    .verbose(115200)
     .configuration
       .set(&C)
       .addObserver(new CalibrationObserver(), {&C.leds.calibration})

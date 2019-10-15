@@ -38,7 +38,7 @@ public:
 void setup() {
 
   Bleeper
-    .verbose()
+    .verbose(115200)
     .configuration
       .set(&C)
       .addObserver(new MyObserver(), {&C.wifi.network.port})

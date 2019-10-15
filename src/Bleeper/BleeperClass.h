@@ -25,7 +25,7 @@ public:
   void handle();
   void init();
   void init(bool loadFromStorage);
-  BleeperClass& verbose();
+  BleeperClass& verbose(int baudRate);
 
   class Chainable {
   public:
