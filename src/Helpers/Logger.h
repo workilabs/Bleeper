@@ -7,9 +7,10 @@ class Logger {
 public:
   static bool verbose;
   static bool serialInitialized;
+  static int  baudRate;
   static void print(String msg) {
     if (!serialInitialized) {
-      Serial.begin(115200);
+      Serial.begin(baudRate);
       while (!Serial) yield();
       serialInitialized = true;
     }
