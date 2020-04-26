@@ -44,7 +44,7 @@ Suppose that you have this configuration:
 
 
 
-The above tree structure speaks by its own, what's worth to mention here is that we want `wifi.ssid` and `wifi.passwrod` to be persistent using the Bleeper storage.
+The above tree structure speaks by its own, what's worth to mention here is that we want `wifi.ssid` and `wifi.password` to be persistent using the Bleeper storage.
 
 The C++ code will look like this:
 
